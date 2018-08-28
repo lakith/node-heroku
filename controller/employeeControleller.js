@@ -5,6 +5,7 @@ const {ObjectID} = require('mongodb');
 let {employee} = require('./../model/employee');
 let {mongoose} = require('./../DB/mongo_connection');
 
+let PORT = process.env.PORT;
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -55,6 +56,6 @@ app.get('/employee/:id',(req,res)=>{
     });
 });
 
-app.listen (3000,()=>{
-    console.log("server started on port 3000");
+app.listen (PORT || 3000,()=>{
+    console.log(`server started on port $ `);
 });
